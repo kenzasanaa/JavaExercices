@@ -1,0 +1,9 @@
+Create a supervisor (control program) that controls the execution of an abstract program.
+The abstract program runs in a separate thread and is a class with an enumerated field that reflects its state.
+● UNKNOWN - before the first run
+● STOPPING - stopped
+● RUNNING - running
+● FATAL ERROR - critical error
+and has a random-state daemon thread that changes its state to a random one at a specified interval.
+The supervisor must have methods for stopping and starting the abstract program, which change its state. The supervisor is a thread that cyclically polls the abstract program and, if its state is STOPPING, restarts it. If the state is FATAL ERROR, the abstract program is terminated by the supervisor. All state changes must be accompanied by appropriate messages in the console. The supervisor must not miss any status of the abstract program.
+Use wait/notify constructs.
